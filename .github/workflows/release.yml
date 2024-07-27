@@ -16,12 +16,12 @@ jobs:
           TAG_VERSION=${{ github.ref_name }}
           test "v${MANIFEST_VERSION}" = "${TAG_VERSION}"
       # Release artifacts were published with the beta. Fetch instead of rebuilding.
-      - uses: robinraju/release-downloader@v1.8
+      - uses: robinraju/release-downloader@v1.11
         with:
           tag: ${{ github.ref_name }}
           fileName: chrome-ssh-agent.zip
       - name: Publish to Webstore
-        uses: mnao305/chrome-extension-upload@v4.0.1
+        uses: mnao305/chrome-extension-upload@v5.0.0
         with:
           file-path: chrome-ssh-agent.zip
           extension-id: eechpbnaifiimgajnomdipfaamobdfha
